@@ -1,0 +1,256 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design Tokens ──────────────────────────────── */
+:root {
+  --cream: #FAFDF0;
+  --dark-green: #1A3A2A;
+  --forest-green: #2D6A4F;
+  --neon-green: #39FF14;
+  --purple: #7B3FE4;
+  --purple-light: #A78BFA;
+  --off-cream: #F0F4E8;
+}
+
+/* ─── Base ───────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--dark-green);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ─── Pixel Utilities ────────────────────────────── */
+
+/* Gradient text: dark green → neon green */
+.gradient-text {
+  background: linear-gradient(135deg, #1A3A2A 0%, #39FF14 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text-purple {
+  background: linear-gradient(135deg, #4C1D95 0%, #7B3FE4 50%, #A78BFA 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Pixel box with drop shadow */
+.pixel-box {
+  border: 2px solid var(--dark-green);
+  box-shadow: 4px 4px 0px 0px var(--dark-green);
+}
+
+.pixel-box-neon {
+  border: 2px solid var(--neon-green);
+  box-shadow: 4px 4px 0px 0px var(--neon-green);
+}
+
+.pixel-box-purple {
+  border: 2px solid var(--purple);
+  box-shadow: 4px 4px 0px 0px var(--purple);
+}
+
+.pixel-box-sm {
+  border: 2px solid var(--dark-green);
+  box-shadow: 2px 2px 0px 0px var(--dark-green);
+}
+
+/* Pixel button interaction */
+.pixel-btn {
+  transition: transform 0.05s, box-shadow 0.05s;
+  user-select: none;
+}
+
+.pixel-btn:hover {
+  box-shadow: 6px 6px 0px 0px var(--dark-green);
+  transform: translate(-1px, -1px);
+}
+
+.pixel-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px 0px var(--dark-green) !important;
+}
+
+.pixel-btn-neon:hover {
+  box-shadow: 6px 6px 0px 0px var(--neon-green) !important;
+  transform: translate(-1px, -1px);
+  border-color: var(--neon-green) !important;
+}
+
+.pixel-btn-neon:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px 0px var(--neon-green) !important;
+}
+
+/* Neon glow text */
+.neon-text {
+  color: var(--neon-green);
+  text-shadow: 0 0 6px var(--neon-green), 0 0 12px var(--neon-green);
+}
+
+/* Scanline overlay */
+.scanlines {
+  position: relative;
+}
+
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.035) 3px,
+    rgba(0, 0, 0, 0.035) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Inverted section (dark green bg) */
+.section-inverted {
+  background-color: var(--dark-green);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-inverted::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(57, 255, 20, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+/* Tag / badge chip */
+.pixel-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1.5px solid var(--dark-green);
+  background: var(--off-cream);
+  padding: 0.2rem 0.5rem;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
+  line-height: 1.4;
+  box-shadow: 2px 2px 0px 0px var(--dark-green);
+  color: var(--dark-green);
+  white-space: nowrap;
+}
+
+.pixel-tag-neon {
+  border-color: var(--neon-green);
+  background: rgba(57, 255, 20, 0.08);
+  box-shadow: 2px 2px 0px 0px var(--neon-green);
+  color: var(--forest-green);
+}
+
+.pixel-tag-purple {
+  border-color: var(--purple);
+  background: rgba(123, 63, 228, 0.08);
+  box-shadow: 2px 2px 0px 0px var(--purple);
+  color: var(--purple);
+}
+
+/* Section label badge */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid var(--dark-green);
+  background: var(--off-cream);
+  padding: 0.4rem 0.8rem;
+  box-shadow: 3px 3px 0px 0px var(--dark-green);
+}
+
+/* Pixel progress bar */
+.pixel-progress-track {
+  border: 2px solid var(--dark-green);
+  background: var(--off-cream);
+  box-shadow: 2px 2px 0px 0px var(--dark-green);
+  height: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pixel-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--forest-green), var(--neon-green));
+  box-shadow: 0 0 6px var(--neon-green);
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.pixel-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; right: 0;
+  width: 4px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Card entrance animation */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-enter {
+  animation: cardEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Page transition */
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cursor blink */
+.cursor-blink::after {
+  content: '█';
+  animation: pixelBlink 0.8s step-end infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+  border-left: 2px solid var(--dark-green);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dark-green);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--forest-green);
+}

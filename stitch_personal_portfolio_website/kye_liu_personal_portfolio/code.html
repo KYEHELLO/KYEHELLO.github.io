@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-variant": "#e7e2da",
+                  "on-error": "#ffffff",
+                  "background": "#fef9f1",
+                  "tertiary-fixed-dim": "#2ae500",
+                  "inverse-primary": "#d3bbff",
+                  "secondary-fixed-dim": "#93d5aa",
+                  "on-secondary-fixed-variant": "#0b5131",
+                  "on-surface": "#1d1c17",
+                  "on-error-container": "#93000a",
+                  "secondary-container": "#aff2c4",
+                  "on-primary": "#ffffff",
+                  "primary-container": "#3b1f6e",
+                  "on-tertiary-container": "#1fb100",
+                  "surface-container-lowest": "#ffffff",
+                  "on-primary-fixed": "#250158",
+                  "surface": "#fef9f1",
+                  "surface-bright": "#fef9f1",
+                  "on-secondary-container": "#31704c",
+                  "surface-container-low": "#f8f3eb",
+                  "on-tertiary": "#ffffff",
+                  "surface-container-highest": "#e7e2da",
+                  "outline-variant": "#cbc4d2",
+                  "secondary": "#2a6a47",
+                  "on-surface-variant": "#494550",
+                  "primary-fixed": "#eaddff",
+                  "surface-container-high": "#ece8e0",
+                  "on-background": "#1d1c17",
+                  "secondary-fixed": "#aff2c4",
+                  "on-primary-container": "#a68adf",
+                  "outline": "#7b7581",
+                  "primary": "#250259",
+                  "error-container": "#ffdad6",
+                  "error": "#ba1a1a",
+                  "tertiary": "#022200",
+                  "shadow-pixel": "#2A1454",
+                  "surface-container": "#f2ede5",
+                  "surface-tint": "#6a4f9f",
+                  "tertiary-fixed": "#79ff5b",
+                  "on-secondary": "#ffffff",
+                  "primary-fixed-dim": "#d3bbff",
+                  "text-dark": "#0D3320",
+                  "on-tertiary-fixed": "#022100",
+                  "on-primary-fixed-variant": "#523786",
+                  "tertiary-container": "#053a00",
+                  "on-secondary-fixed": "#002110",
+                  "on-tertiary-fixed-variant": "#095300",
+                  "inverse-surface": "#32302b",
+                  "surface-dim": "#ded9d2",
+                  "inverse-on-surface": "#f5f0e8"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "lg": "64px",
+                  "md": "32px",
+                  "container-max": "1200px",
+                  "sm": "16px",
+                  "xl": "128px",
+                  "gutter": "24px",
+                  "unit": "4px",
+                  "xs": "8px"
+          },
+          "fontFamily": {
+                  "body-lg": ["JetBrains Mono"],
+                  "label-sm": ["JetBrains Mono"],
+                  "headline-lg-mobile": ["Press Start 2P"],
+                  "body-md": ["JetBrains Mono"],
+                  "headline-md": ["Press Start 2P"],
+                  "display-xl": ["Press Start 2P"],
+                  "headline-lg": ["Press Start 2P"]
+          },
+          "fontSize": {
+                  "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "label-sm": ["14px", {"lineHeight": "1", "fontWeight": "700"}],
+                  "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                  "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                  "display-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-2px", "fontWeight": "400"}],
+                  "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    .animate-pixel-blink {
+      animation: blink 0.5s step-start infinite;
+    }
+
+    @keyframes bounce-orb {
+      0%, 100% { transform: translate(120px, 0); }
+      25% { transform: translate(60px, -40px); }
+      50% { transform: translate(0, 0); }
+      75% { transform: translate(60px, 40px); }
+    }
+    
+    @keyframes chase-character {
+      0%, 100% { transform: translate(80px, 0) scaleX(1); }
+      25% { transform: translate(40px, -30px) scaleX(1); }
+      50% { transform: translate(-20px, 0) scaleX(-1); }
+      75% { transform: translate(40px, 30px) scaleX(1); }
+    }
+
+    .pixel-shadow-inset {
+      box-shadow: inset -4px -4px 0px 0px rgba(0,0,0,0.2), inset 4px 4px 0px 0px rgba(255,255,255,0.1);
+    }
+
+    .pixel-grid-bg {
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    .pixel-art-character {
+      width: 48px;
+      height: 48px;
+      background-color: #79ff5b; /* tertiary-fixed */
+      position: relative;
+      clip-path: polygon(
+        /* Simple 8-bit head/body shape */
+        20% 0%, 80% 0%, 80% 20%, 100% 20%, 100% 80%, 80% 80%, 80% 100%, 20% 100%, 20% 80%, 0% 80%, 0% 20%, 20% 20%
+      );
+    }
+
+    .pixel-orb {
+      width: 16px;
+      height: 16px;
+      background-color: #ffffff;
+      clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
+    }
+
+    .loading-container {
+      border: 4px solid #250259;
+      box-shadow: 8px 8px 0px 0px #2A1454;
+    }
+  </style>
+</head>
+<body class="bg-primary-container m-0 overflow-hidden select-none">
+<!-- Main Loading Canvas -->
+<main class="relative w-screen h-screen flex flex-col items-center justify-center p-lg">
+<!-- Retro Scanlines Effect Overlay -->
+<div class="absolute inset-0 pointer-events-none z-10" style="background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03)); background-size: 100% 4px, 3px 100%;"></div>
+<!-- Background Pixel Grid -->
+<div class="absolute inset-0 pixel-grid-bg opacity-30"></div>
+<!-- Center Animation Stage -->
+<div class="relative flex flex-col items-center gap-md z-20">
+<!-- The Animation Wrapper -->
+<div class="relative w-64 h-48 flex items-center justify-center">
+<!-- Bouncing Orb -->
+<div class="absolute pixel-orb" style="animation: bounce-orb 2s infinite ease-in-out;"></div>
+<!-- Chasing Character Silhouette -->
+<div class="absolute pixel-art-character" style="animation: chase-character 2s infinite ease-in-out;">
+<!-- Pixel Eye -->
+<div class="absolute top-2 right-2 w-2 h-2 bg-primary"></div>
+</div>
+</div>
+<!-- Loading Text Section -->
+<div class="loading-container bg-surface px-md py-sm flex flex-col items-center">
+<h1 class="font-headline-md text-headline-md text-primary tracking-widest animate-pixel-blink">
+          LOADING...
+        </h1>
+<!-- Progress Bar (Static Visual) -->
+<div class="mt-xs w-48 h-4 border-2 border-primary-container p-[2px] bg-white">
+<div class="h-full bg-tertiary-fixed-dim transition-all duration-300" id="progress-bar" style="width: 35%;"></div>
+</div>
+<!-- Subtitle -->
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs opacity-75">
+          INITIALIZING PIXELS
+        </p>
+</div>
+</div>
+<!-- Bottom Decorative Branding -->
+<div class="absolute bottom-md left-0 w-full flex justify-center">
+<div class="px-sm py-xs border-2 border-primary bg-primary-container text-primary-fixed font-label-sm text-label-sm uppercase tracking-tighter">
+        KYE LIU SYSTEM V1.0.4
+      </div>
+</div>
+<!-- Corner Accents -->
+<div class="absolute top-sm left-sm w-8 h-8 border-t-4 border-l-4 border-tertiary-fixed-dim"></div>
+<div class="absolute top-sm right-sm w-8 h-8 border-t-4 border-r-4 border-tertiary-fixed-dim"></div>
+<div class="absolute bottom-sm left-sm w-8 h-8 border-b-4 border-l-4 border-tertiary-fixed-dim"></div>
+<div class="absolute bottom-sm right-sm w-8 h-8 border-b-4 border-r-4 border-tertiary-fixed-dim"></div>
+</main>
+<script>
+    // Simple script to simulate progress bar movement for visual flair
+    const progressBar = document.getElementById('progress-bar');
+    let width = 35;
+    
+    function animateProgress() {
+      if (width < 95) {
+        width += Math.random() * 2;
+        progressBar.style.width = width + '%';
+        
+        // Random stutters to mimic authentic retro loading
+        const delay = Math.random() > 0.8 ? 500 : 100;
+        setTimeout(animateProgress, delay);
+      } else {
+        // Reset or stay near end
+        setTimeout(() => {
+            width = 35;
+            animateProgress();
+        }, 2000);
+      }
+    }
+
+    animateProgress();
+
+    // Sound effect simulation (visual only in this context)
+    console.log("System Ready. Sound: 8-bit Oscillator Activated.");
+  </script>
+</body></html>
